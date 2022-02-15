@@ -1,0 +1,33 @@
+buttons :
+  SLAM  :
+    run    :  do_shell_exec "gnome-terminal --tab -- roslaunch stella_slam stella_slam.launch && sleep 2 && wmctrl -r 'stella_cartographer.rviz - RViz' -e 0,0,180,630,770" 
+
+  save_map  :
+    run    :  do_shell_exec "rosrun map_server map_saver -f ~/map"
+    param  :  save_map
+    gui    :
+#      stat_topic : [ vmap ]
+      panel : self.panel_save_map
+
+  navigation  :
+    run    :  do_shell_exec "gnome-terminal --tab -- roslaunch stella_navigation stella_navigation.launch && sleep 2 && wmctrl -r 'stella_navigation.rviz - RViz' -e 0,0,180,630,770"
+    param  :  navigation
+    gui    :
+#      stat_topic : [ vmap ]
+      panel : self.panel_navigation
+
+
+params :
+  - name  : save_map
+    vars  :
+    - name      : path_save_map
+      kind      : path
+      path_type : dir
+      v         : ''
+
+  - name  : navigation
+    vars  :
+    - name      : path_nav
+      kind      : path
+      path_type : multi
+      v         : ''

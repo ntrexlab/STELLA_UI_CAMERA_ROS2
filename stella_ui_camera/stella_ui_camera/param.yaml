@@ -1,0 +1,9 @@
+connection_data:
+  remote_ip: 192.168.124.25
+  robot_id: pi
+  robot_ip: 192.168.124.39
+  robot_password: '1'
+navigation:
+  path_nav: /home/ntrex/map2.yaml
+save_map:
+  path_save_map: ''
