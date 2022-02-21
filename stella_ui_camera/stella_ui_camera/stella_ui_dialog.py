@@ -450,7 +450,7 @@ class MyFrame(rtmgr.MyFrame):
 			twist.angular.y = 0.0
 			twist.angular.z = self.target_angular_vel
 			pub.publish(twist)
-			time.sleep(0.1)
+			time.sleep(0.3)
 		pub = self.node.create_publisher(Twist,'cmd_vel',10)
 		twist = Twist()
 		twist.linear.x = 0.0
